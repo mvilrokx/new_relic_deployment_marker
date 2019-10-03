@@ -1,5 +1,3 @@
 ---
 - hosts: localhost
   remote_user: root
-  roles:
-    - new_relic_deployment_marker
