@@ -30,13 +30,13 @@ The `changelog` parameter for the New Relic Deployment Marker API.
 
 The `description` parameter for the New Relic Deployment Marker API.
 
-    {{new_relic_api_key}}
+    {{ new_relic_api_key }}
 
 The New Relic API key, provided by New Relic (Account Settings > API Keys)
 
-    {{inventory_hostname}}
+    {{ inventory_hostname }}
 
-This role uses the {{inventory_hostname}} to find the application id
+This role uses the {{ inventory_hostname }} to find the application id
 
 ## Dependencies
 
