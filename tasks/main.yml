@@ -1,0 +1,37 @@
+---
+- name: Get New Relic Application Id (using host name)
+  uri:
+    url: '{{new_relic_api_base_url}}/applications.json'
+    method: GET
+    headers: {
+      "X-Api-Key": "{{new_relic_api_key}}"
+    }
+    body: 'filter[host]={{inventory_hostname}}'
+    status_code: [200]
+    timeout: new_relic_api_timeout
+  register: new_relic_applications
+
+- name: DEBUG - New Relic Application Id
+  debug:
+    var: new_relic_applications
+  tags: debug_info
+
+- name: Create Deployment Marker
+  uri:
+    url: '{{new_relic_api_base_url}}/applications/{{new_relic_applications.json.applications[0].id}}/deployments.json'
+    method: POST
+    headers: {
+      "X-Api-Key": "{{new_relic_api_key}}"
+    }
+    body_format: json
+    body: {
+      "deployment": {
+        "revision": "{{revision}}",
+        "changelog": "{{changelog}}",
+        "description": "{{description}}",
+        "user": "Ansible Deployment",
+        "timestamp": "{{ansible_date_time.iso8601}}"
+      }
+    }
+    status_code: [200, 201]
+    timeout: new_relic_api_timeout

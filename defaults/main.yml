@@ -1,0 +1,6 @@
+---
+new_relic_api_base_url: "https://api.newrelic.com/v2/"
+new_relic_api_timeout: 10
+revision: ""
+changelog: ""
+description: ""
