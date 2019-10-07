@@ -8,7 +8,7 @@
     }
     body: 'filter[host]={{ inventory_hostname }}'
     status_code: [200]
-    timeout: new_relic_api_timeout
+    timeout: {{new_relic_api_timeout}}
   register: new_relic_applications
 
 - name: DEBUG - New Relic Application Id
@@ -34,4 +34,4 @@
       }
     }
     status_code: [200, 201]
-    timeout: new_relic_api_timeout
+    timeout: {{new_relic_api_timeout}}
