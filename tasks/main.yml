@@ -17,6 +17,7 @@
   tags: debug_info
 
 - name: Create Deployment Marker
+  when: length(new_relic_applications.json.applications) > 0
   uri:
     url: '{{ new_relic_api_base_url }}/applications/{{ new_relic_applications.json.applications[0].id }}/deployments.json'
     method: POST
