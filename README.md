@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mvilrokx/new_relic_deployment_marker.svg?branch=master)](https://travis-ci.org/mvilrokx/new_relic_deployment_marker)
+
 # Ansible Role: new_relic_deployment_marker
 
 Create [Deployment Markers in New Relic](https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/record-monitor-deployments).
